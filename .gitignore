@@ -1,0 +1,42 @@
+# Arquivos temporários do Android Studio
+*.iml
+.gradle/
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build/
+/captures/
+
+# Arquivos de compilação e logs
+/*.class
+/build/
+/bin/
+/out/
+/.externalNativeBuild
+/.cxx/
+/.ndk/
+
+# Arquivos gerados pelo Android
+/*.apk
+/*.ap_
+/*.aab
+/generated/
+/apk/
+/captured_output/
+
+# Arquivos de configuração local
+/.gradle/
+/caches/
+/.m2/
+
+# Logs e diretórios de build
+/logs/
+/gradle-wrapper.jar
+/gradle-wrapper.properties
+/gradlew
+/gradlew.bat
+
+# Arquivos de configuração específicos do sistema operacional
+/.DS_Store
+Thumbs.db
