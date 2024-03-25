@@ -1,5 +1,7 @@
 package com.example.agenda.ui.activity;
 
+import static com.example.agenda.ui.activity.ConstantesActivities.CHAVE_PESSOA;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +16,8 @@ import com.example.agenda.models.Pessoa;
 
 public class FormularioNovaPessoaActivity extends AppCompatActivity {
 
-    public static final String TITULO_APPBAR = "Novo pessoa";
+    private static final String TITULO_APPBAR_NOVO_ALUNO = "Novo pessoa";
+    private static final String TITULO_APPBAR_EDITAR_ALUNO = "Editar pessoa";
     private Pessoa pessoa;
     private EditText campoNome;
     private EditText campoTelefone;
@@ -25,19 +28,28 @@ public class FormularioNovaPessoaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formulario_nova_pessoa_layout);
-        setTitle(TITULO_APPBAR);
         inicializacaoDosCampos();
         configuraBotaoSalvar();
+        carregaPessoa();
+    }
+
+    private void carregaPessoa() {
         Intent dados = getIntent();
-        if(dados.hasExtra("pessoa")){
+        if(dados.hasExtra(CHAVE_PESSOA)){
+            setTitle(TITULO_APPBAR_EDITAR_ALUNO);
             pessoa = (Pessoa) dados.getSerializableExtra("pessoa");
-            campoNome.setText(pessoa.getNome());
-            campoTelefone.setText(pessoa.getTelefone());
-            campoEmail.setText(pessoa.getEmail());
+            PreencheCampos();
         }
         else {
+            setTitle(TITULO_APPBAR_NOVO_ALUNO);
             pessoa = new Pessoa();
         }
+    }
+
+    private void PreencheCampos() {
+        campoNome.setText(pessoa.getNome());
+        campoTelefone.setText(pessoa.getTelefone());
+        campoEmail.setText(pessoa.getEmail());
     }
 
     private void configuraBotaoSalvar() {

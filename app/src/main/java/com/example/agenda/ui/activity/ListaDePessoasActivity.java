@@ -1,5 +1,7 @@
 package com.example.agenda.ui.activity;
 
+import static com.example.agenda.ui.activity.ConstantesActivities.CHAVE_PESSOA;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +23,7 @@ import java.util.List;
 public class ListaDePessoasActivity extends AppCompatActivity {
 
     public static final String TITULO_APPBAR = "Lista de Pessoas";
+
     private final PessoaDAO dao = new PessoaDAO();
 
     @Override
@@ -29,8 +32,6 @@ public class ListaDePessoasActivity extends AppCompatActivity {
         setContentView(R.layout.lista_de_pessoas_layout);
         setTitle(TITULO_APPBAR);
         configuraFabNovoPessoa();
-        dao.salvar(new Pessoa("Adrian Jansen Quindeler", "27 988887777", "AdrianJQuindeler@Gmail.com"));
-        dao.salvar(new Pessoa("Mariana Bernardino Ribeiro", "27 911112222", "MarianaBRibeiro@Gmail.com"));
 
     }
 
@@ -39,12 +40,12 @@ public class ListaDePessoasActivity extends AppCompatActivity {
         botaoNovoPessoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                abreFormularioPessoaActivity();
+                abreFormularioModoInserirAluno();
             }
         });
     }
 
-    private void abreFormularioPessoaActivity() {
+    private void abreFormularioModoInserirAluno() {
         startActivity(new Intent(this, FormularioNovaPessoaActivity.class));
     }
 
@@ -67,8 +68,12 @@ public class ListaDePessoasActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Pessoa pessoaEscolhida = (Pessoa) parent.getItemAtPosition(position);
                 Toast.makeText(ListaDePessoasActivity.this, ""+ pessoaEscolhida, Toast.LENGTH_SHORT).show();
+                AbreFormilarioModoEditaAluno(pessoaEscolhida);
+            }
+
+            private void AbreFormilarioModoEditaAluno(Pessoa pessoaEscolhida) {
                 Intent vaiParaOFormulario = new Intent(ListaDePessoasActivity.this, FormularioNovaPessoaActivity.class);
-                vaiParaOFormulario.putExtra("pessoa", pessoaEscolhida);
+                vaiParaOFormulario.putExtra(CHAVE_PESSOA, pessoaEscolhida);
                 startActivity(vaiParaOFormulario);
             }
         });
