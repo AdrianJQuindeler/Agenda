@@ -34,4 +34,11 @@ public class PessoaDAO {
     }
 
     public List<Pessoa> todos() { return pessoas; }
+
+    public void remove(Pessoa pessoaClicada) {
+        Pessoa pessoaParaRemover = buscaPessoaPorID(pessoaClicada);
+        if(pessoaParaRemover != null) {
+            pessoas.remove(pessoaParaRemover);
+        }
+    }
 }
