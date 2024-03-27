@@ -41,6 +41,10 @@ public class ListaDePessoasActivity extends AppCompatActivity {
         super.onCreateContextMenu(menu, v, menuInfo);
         getMenuInflater().inflate(R.menu.activity_lista_pessoas_menu, menu);
     }
+    private void remove(Pessoa pessoa) {
+        dao.remove(pessoa);
+        adapter.remove(pessoa);
+    }
 
     private void configuraBotaoNovaPessoa() {
         Button botaoNovoPessoa = findViewById(R.id.lista_de_pessoas_botao_adicionar);
@@ -75,17 +79,19 @@ public class ListaDePessoasActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
+    public boolean onContextItemSelected(MenuItem item) {
 
-        CharSequence title = item.getTitle();
-        if(title.equals(R.id.activity_lista_pessoas_menu_remover)){
+        int itemId = item.getItemId();
+        if (itemId == R.id.activity_lista_pessoas_menu_remover) {
             AdapterView.AdapterContextMenuInfo menuInfo =
                     (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-            Pessoa pessoaClicada = adapter.getItem(menuInfo.position);
-            adapter.remove(pessoaClicada);
+            Pessoa pessoaEscolhida = adapter.getItem(menuInfo.position);
+            remove(pessoaEscolhida);
         }
+
         return super.onContextItemSelected(item);
     }
+
 
     private void configuraListenerDeCliquePorItem(ListView listaDePessoas) {
         listaDePessoas.setOnItemClickListener(new AdapterView.OnItemClickListener() {

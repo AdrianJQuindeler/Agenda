@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/formulario_nova_pessoa_campo_nome"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:ems="10"
-        android:inputType="textCapWords"
-        android:hint="@string/nome" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/formulario_nova_pessoa_campo_telefone"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:ems="10"
-        android:inputType="phone"
-        android:hint="@string/telefone" />
+        <EditText
+            android:id="@+id/formulario_nova_pessoa_campo_nome"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="@string/nome"
+            android:inputType="textCapWords" />
 
-    <EditText
-        android:id="@+id/formulario_nova_pessoa_campo_email"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="@string/email"/>
+        <EditText
+            android:id="@+id/formulario_nova_pessoa_campo_telefone"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="@string/telefone"
+            android:inputType="phone" />
 
-    <Button
-        android:id="@+id/formulario_nova_pessoa_botao_salvar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/salvar" />
-</LinearLayout>
+        <EditText
+            android:id="@+id/formulario_nova_pessoa_campo_email"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
+    </LinearLayout>
+
+</ScrollView>

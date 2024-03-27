@@ -4,10 +4,13 @@ import static com.example.agenda.ui.activity.ConstantesActivities.CHAVE_PESSOA;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agenda.R;
@@ -29,8 +32,13 @@ public class FormularioNovaPessoaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formulario_nova_pessoa_layout);
         inicializacaoDosCampos();
-        configuraBotaoSalvar();
         carregaPessoa();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_formulario_pessoa_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void carregaPessoa() {
@@ -52,21 +60,24 @@ public class FormularioNovaPessoaActivity extends AppCompatActivity {
         campoEmail.setText(pessoa.getEmail());
     }
 
-    private void configuraBotaoSalvar() {
-        Button botaoSalvar = findViewById(R.id.formulario_nova_pessoa_botao_salvar);
-        botaoSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                atualizapessoa();
-                if(pessoa.temIdValido()){
-                    dao.editar(pessoa);
-                }
-                else {
-                    dao.salvar(pessoa);
-                }
-                finish();
-            }
-        });
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if(itemId == R.id.activity_formulario_pessoa_menu_salvar){
+            finalizaFormulario();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void finalizaFormulario() {
+        atualizapessoa();
+        if(pessoa.temIdValido()){
+            dao.editar(pessoa);
+        }
+        else {
+            dao.salvar(pessoa);
+        }
+        finish();
     }
 
     private void inicializacaoDosCampos() {
