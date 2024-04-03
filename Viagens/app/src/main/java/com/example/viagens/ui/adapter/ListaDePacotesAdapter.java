@@ -1,7 +1,6 @@
 package com.example.viagens.ui.adapter;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +9,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.viagens.DiasUtil;
-import com.example.viagens.MoedaUtil;
+import com.example.viagens.util.DiasUtil;
+import com.example.viagens.util.MoedaUtil;
 import com.example.viagens.R;
-import com.example.viagens.ResourcesUtil;
+import com.example.viagens.util.ResourcesUtil;
 import com.example.viagens.ui.model.Pacote;
 
 import java.util.List;

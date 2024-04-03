@@ -5,4 +5,7 @@
     <string name="brasil">Brasil</string>
     <string name="cor_de_fundo_roxa">Cor de fundo roxa</string>
     <string name="imagem_da_cidade">Imagem da cidade</string>
+    <string name="realizar_pagamento">REALIZAR PAGAMENTO</string>
+    <string name="imagem_da_cidade_resumo">Imagem da cidade</string>
+    <string name="pre_o_final">Preço final:</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.viagens;
+package com.example.viagens.util;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;

@@ -1,4 +1,4 @@
-package com.example.viagens;
+package com.example.viagens.util;
 
 import android.content.Context;
 import android.content.res.Resources;
