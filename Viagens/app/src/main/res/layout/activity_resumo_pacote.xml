@@ -86,7 +86,7 @@
         android:layout_margin="10dp"
         android:text="@string/realizar_pagamento"
         android:textColor="@color/white"
-        android:background="@drawable/botao_laranja_pagamento"
+        android:background="@drawable/botao_laranja_arredondado"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
