@@ -8,24 +8,25 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agenda.R;
 import com.example.agenda.dao.PessoaDAO;
 import com.example.agenda.models.Pessoa;
+import com.example.agenda.ui.adapter.ListaPessoasAdapter;
+
 
 public class ListaDePessoasActivity extends AppCompatActivity {
 
     public static final String TITULO_APPBAR = "Lista de Pessoas";
     private final PessoaDAO dao = new PessoaDAO();
-    private ArrayAdapter<Pessoa> adapter;
+    private ListaPessoasAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class ListaDePessoasActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         atualizaPessoas();
+        adapter.notifyDataSetChanged();
     }
 
     private void atualizaPessoas() {
@@ -99,10 +101,10 @@ public class ListaDePessoasActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Pessoa pessoaClicada = (Pessoa) parent.getItemAtPosition(position);
                 Toast.makeText(ListaDePessoasActivity.this, ""+ pessoaClicada, Toast.LENGTH_SHORT).show();
-                AbreFormilarioModoEditaAluno(pessoaClicada);
+                AbreFormularioModoEditaAluno(pessoaClicada);
             }
 
-            private void AbreFormilarioModoEditaAluno(Pessoa pessoaEscolhida) {
+            private void AbreFormularioModoEditaAluno(Pessoa pessoaEscolhida) {
                 Intent vaiParaOFormulario = new Intent(ListaDePessoasActivity.this, FormularioNovaPessoaActivity.class);
                 vaiParaOFormulario.putExtra(CHAVE_PESSOA, pessoaEscolhida);
                 startActivity(vaiParaOFormulario);
@@ -111,9 +113,8 @@ public class ListaDePessoasActivity extends AppCompatActivity {
     }
 
     private void configuraAdapter(ListView listaDePessoas) {
-        adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1);
+        adapter = new ListaPessoasAdapter(ListaDePessoasActivity.this);
         listaDePessoas.setAdapter(adapter);
+        atualizaPessoas();
     }
 }
