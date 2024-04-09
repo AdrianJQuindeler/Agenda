@@ -10,7 +10,6 @@
 
 # Arquivos de compilação e logs
 /*.class
-/build/
 /bin/
 /out/
 /.externalNativeBuild

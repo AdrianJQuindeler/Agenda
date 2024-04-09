@@ -1,13 +1,11 @@
 package com.example.agenda.ui.activity;
 
-import static com.example.agenda.ui.activity.ConstantesActivities.CHAVE_PESSOA;
+import static com.example.agenda.ui.activity.ConstantesActivity.CHAVE_PESSOA;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;

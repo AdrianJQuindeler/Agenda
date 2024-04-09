@@ -23,17 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.activity.ListaPacotesActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ui.activity.ui.ListaPacotesActivity"
             android:exported="true"
-            android:label="@string/title_activity_lista_pacotes"
             android:theme="@style/Theme.Viagens">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

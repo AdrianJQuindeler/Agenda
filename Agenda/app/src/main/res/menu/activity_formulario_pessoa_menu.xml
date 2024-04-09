@@ -5,5 +5,5 @@
     <item android:id="@+id/activity_formulario_pessoa_menu_salvar"
         app:showAsAction="always"
         android:icon="@mipmap/salvar_pessoa"
-        android:title="Salvar informações" />
+        android:title="@string/salvar_informacoes" />
 </menu>
